@@ -105,9 +105,10 @@ const ScrollableTabView = React.createClass({
           directionalLockEnabled
           alwaysBounceVertical={false}>
           {this._children().map((child, idx) => {
+            let width = child.props.invisible ? 0 : this.state.containerWidth;
             return <View
               key={child.props.tabLabel + '_' + idx}
-              style={{width: this.state.containerWidth, }}>
+              style={{width}}>
               {child}
             </View>;
           })}
